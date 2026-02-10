@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8878258976972058978}
   m_Layer: 0
   m_Name: trash2
-  m_TagString: collectible
+  m_TagString: trash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

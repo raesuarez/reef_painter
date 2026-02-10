@@ -6,9 +6,11 @@ public class PlayerController : MonoBehaviour
     private Vector3 playerInput;
     private Rigidbody rb;
     public float speed = 5;
+    public score scoreScript;
 
     void Start(){
         rb = this.GetComponent<Rigidbody>();
+        Cursor.visible = false;
     }
        
     void Update(){
@@ -39,8 +41,9 @@ public class PlayerController : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision collision){
-        if (collision.gameObject.tag == "collectible"){
+        if (collision.gameObject.tag == "trash"){
         collision.gameObject.SetActive(false);
+        scoreScript.subtractScore();
         }
     }
 }
