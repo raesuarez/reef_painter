@@ -45,5 +45,10 @@ public class PlayerController : MonoBehaviour
         collision.gameObject.SetActive(false);
         scoreScript.subtractScore();
         }
+        if (collision.gameObject.tag == "food"){
+        collision.gameObject.SetActive(false);
+        scoreScript.addScore();
+        }
+
     }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - collectible
   - trash
+  - food
   layers:
   - Default
   - TransparentFX
