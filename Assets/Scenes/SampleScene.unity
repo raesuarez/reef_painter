@@ -1210,7 +1210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
   target: {fileID: 368891528}
   smoothSpeed: 0.25
-  offset: {x: 0, y: 3.5, z: 0}
+  offset: {x: 0, y: 4.06, z: 0}
 --- !u!1001 &358434626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1325,6 +1325,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   speed: 10
   scoreScript: {fileID: 368891534}
+  crabbyImage: {fileID: 370494531}
+  upCrabby: {fileID: 21300000, guid: dfccb49f98e4f3c43ad35a8641a7a265, type: 3}
+  downCrabby: {fileID: 21300000, guid: 1f79e7521fc4b2a4c85f8af9029cb4e7, type: 3}
 --- !u!54 &368891530
 Rigidbody:
   m_ObjectHideFlags: 0
