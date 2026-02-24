@@ -5,14 +5,12 @@ public class collision : MonoBehaviour
 {
     //attached to a collider object not marked as trigger
     public UnityEvent onCollisionEnter;
-    public score score;
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "trash")
         {
             this.gameObject.SetActive(false);
-            score.subtractScore();
         }
     }
 }

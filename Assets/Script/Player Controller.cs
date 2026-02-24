@@ -6,14 +6,18 @@ public class PlayerController : MonoBehaviour
     private Vector3 playerInput;
     private Rigidbody rb;
     public float speed = 5;
-    public score scoreScript;
+    public GameManager GM;
     bool isFacingRight = true;
     bool isFacingUp = true;
     public SpriteRenderer crabbyImage;
     public Sprite upCrabby;
     public Sprite downCrabby;
-
+    void Awake()
+    {
+        GM = GameManager.Instance;
+    }
     void Start(){
+        GM = GameManager.Instance;
         rb = this.GetComponent<Rigidbody>();
         Cursor.visible = false;
     }
@@ -71,7 +75,7 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.tag == "food"){
         collision.gameObject.SetActive(false);
-        scoreScript.addScore();
+        GM.addScore();
         }
 
     }
