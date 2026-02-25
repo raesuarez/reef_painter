@@ -1970,6 +1970,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+  - {fileID: 2100000, guid: b8ee79efa4fb15f47a52fb96a20a190d, type: 2}
   - {fileID: 2100000, guid: e0a78c51261eef74390ba9be2b82e834, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -5057,7 +5058,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1976281282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5079,10 +5080,10 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 1
+    m_Bits: 4294967295
   m_ScaleMode: 0
-  m_Offset: {x: 0, y: 0, z: 0.5}
-  m_Size: {x: 100, y: 100, z: 1}
+  m_Offset: {x: 0, y: 0, z: 2.5}
+  m_Size: {x: 100, y: 100, z: 5}
   m_FadeFactor: 1
   version: 1
   m_DecalLayerMask: 1
@@ -5095,7 +5096,7 @@ Transform:
   m_GameObject: {fileID: 1976281281}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.0746, z: 0}
+  m_LocalPosition: {x: 0, y: 0.26, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
