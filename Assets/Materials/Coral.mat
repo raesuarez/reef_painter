@@ -131,7 +131,7 @@ Material:
     - _SoftParticlesFarFadeDistance: 1
     - _SoftParticlesNearFadeDistance: 0
     - _SpecularHighlights: 1
-    - _Spread: 2.4111903
+    - _Spread: 1.7613981
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
