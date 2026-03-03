@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2141058085552596275}
   - component: {fileID: 443010890258878235}
-  - component: {fileID: 5610361683438465103}
+  - component: {fileID: 4208848161505590299}
   m_Layer: 0
   m_Name: image
   m_TagString: Untagged
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 344f76b7ceacecd459ee2778b7af680b, type: 3}
+  m_Sprite: {fileID: 1415629397, guid: 306fe27ef1c23f8429c43d9daae47c84, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -92,7 +92,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &5610361683438465103
+--- !u!114 &4208848161505590299
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,10 +116,9 @@ GameObject:
   - component: {fileID: 4361281524177867288}
   - component: {fileID: 2741131143871502000}
   - component: {fileID: 2207593971046169243}
-  - component: {fileID: 3846183398625271136}
   m_Layer: 0
-  m_Name: trash1
-  m_TagString: trash
+  m_Name: food
+  m_TagString: food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -212,23 +211,9 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5.671227, y: 1.8813436, z: 4.2782683}
-  m_Center: {x: -0.42790794, y: 0.4406683, z: -0.34034586}
---- !u!114 &3846183398625271136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4891741958408643523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb9c0a1b71aac7c46b6dcb9e73655d74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::trashTrigger
-  GM: {fileID: 0}
-  cs: {fileID: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

@@ -16,6 +16,7 @@ public class coralManager : MonoBehaviour
 
     void OnTriggerEnter(Collider other){
         if(other.gameObject.tag == "Player"){
+            Debug.Log("entered coral area");
             coralUI.gameObject.SetActive(true);
             insideCoralArea = true;
         }
@@ -33,7 +34,7 @@ public class coralManager : MonoBehaviour
         if (insideCoralArea && Input.GetKeyDown(KeyCode.Q))
         {
             Debug.Log("q pressed");
-            GM.coralSap();
+            GM.coralSap(10);
         }
     }
 }

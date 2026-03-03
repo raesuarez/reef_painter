@@ -3,6 +3,7 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections;
+using Microsoft.Unity.VisualStudio.Editor;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,9 +12,6 @@ public class GameManager : MonoBehaviour
     public float foodSpawnRate;
     public UnityEvent highTemp;
     public int energyScore;
-    public TMP_Text energyText;
-    public TMP_Text tempText;
-    public string tempLabel;
     public GameObject lowEnergy;
     public static GameManager Instance;
     void Awake()
@@ -42,46 +40,33 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        if(temperature < 1.0 && temperature > 0.0f)
+        if(temperature < 1.0f && temperature > 0.0f)
         {
-            temperature += 0.00167f * Time.deltaTime;
-            coralSaturation = 1f - temperature;
-            foodSpawnRate = coralSaturation * 5f;
+            temperature += 0.00333f * Time.deltaTime; // in 5 minutes 0 to 1
+            coralSaturation = 1f - temperature; // coral saturation is inverse to temp
+            foodSpawnRate = coralSaturation * 5f; // the less saturated the corals are, the more food spawns
+            // if the coral saturation is 0.1, food spawns every 0.5 seconds
+            // if coral saturation is 1, food spawns every 5 seconds
         }
         else
         {
             highTemp.Invoke();
         }
-        setTempLabel();
-        tempText.text = "Temperature: " + tempLabel;
-
     }
-
     void restart()
     {
         SceneManager.LoadScene("SampleScene");
     }
-    
-    public void setScore(){
-        energyText.text = "Energy: " + energyScore;
-    }
-
     public void addScore(){
         energyScore+=1;
-        setScore();
     }
-
-    public void coralSap(){
-
+    public void coralSap(int amountSapped){
         Debug.Log("coral sapped!");
-
         if(temperature >= 0.1f && energyScore >= 10)
         {
-            energyScore -= 10;
+            energyScore -= amountSapped;
             temperature -= 0.1f;
-            setScore();
             Debug.Log("coral score sapped!");
-
         }
         else if(energyScore < 10)
         {
@@ -94,27 +79,15 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(3);
         lowEnergy.SetActive(false);
     }
-    public void setTempLabel()
+    IEnumerator useMagic()
     {
-        if(temperature < 0.2f)
-        {
-            tempLabel = "Cold";
-        }
-        if(temperature > 0.2f && temperature < 0.4f)
-        {
-            tempLabel = "Cool";
-        }
-        if(temperature > 0.4f && temperature < 0.6f)
-        {
-            tempLabel = "Warm";
-        }
-        if(temperature > 0.6f && temperature < 0.8f)
-        {
-            tempLabel = "Hot";
-        }
-        if(temperature > 0.8f && temperature < 1.0f)
-        {
-            tempLabel = "Too Hot!";
-        }
+        //run animation for crab
+        yield return new WaitForSeconds(3f); // change length to length of animation
+        coralSap(10);
     }
+    /* void GetCurrentFill(Image uiImage, float fill)
+    {
+        float fillAmount = fill / 100;
+        uiImage.fillAmount = fillAmount;
+    } */
 }

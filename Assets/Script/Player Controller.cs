@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -69,14 +70,9 @@ public class PlayerController : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision collision){
-        if (collision.gameObject.tag == "trash"){
-        collision.gameObject.SetActive(false);
-        //scoreScript.subtractScore();
-        }
         if (collision.gameObject.tag == "food"){
         collision.gameObject.SetActive(false);
         GM.addScore();
         }
-
     }
 }

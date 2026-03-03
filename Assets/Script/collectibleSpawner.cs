@@ -15,6 +15,8 @@ public class collectibleSpawner : MonoBehaviour
     public int trashPoolAmount;
     public int totalFood;
     public int totalTrash;
+    public float trashDelayRate;
+    public int currentTrashAmount;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -24,6 +26,11 @@ public class collectibleSpawner : MonoBehaviour
     {
         GM = GameManager.Instance;
         foodSpawnRate = GM.foodSpawnRate;
+        // the less saturated the corals are, the more food spawns
+        // if the coral saturation is 0.1, food spawns every 0.5 seconds
+        // if coral saturation is 1, food spawns every 5 seconds
+        trashDelayRate = 0f;
+        
         totalFood = foodPoolAmount;
         totalTrash = trashPoolAmount;
 
@@ -51,6 +58,7 @@ public class collectibleSpawner : MonoBehaviour
     void Update()
     {
         foodSpawnRate = GM.foodSpawnRate;
+        trashDelayRate = currentTrashAmount * 0.2f; //5 pieces of trash adds 1 second delay to spawn rate
     }
 
     IEnumerator SpawnFood()
@@ -65,7 +73,7 @@ public class collectibleSpawner : MonoBehaviour
             f.transform.position = GetRandomSpawnPosition();
             f.transform.rotation = Quaternion.identity;
             f.SetActive(true);
-            yield return new WaitForSeconds(foodSpawnRate);
+            yield return new WaitForSeconds(foodSpawnRate + trashDelayRate);
         }
         
     }
@@ -110,6 +118,7 @@ public class collectibleSpawner : MonoBehaviour
     for (int i = 0; i < trashPool.Count; i++) {
     //2
         if (!trashPool[i].activeInHierarchy) {
+            currentTrashAmount += 1;
         return trashPool[i];
         }
     }
