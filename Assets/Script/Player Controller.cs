@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void GatherInputs(){
-        playerInput = new Vector3(Input.GetAxisRaw("Horizontal"),0,Input.GetAxisRaw("Vertical"));
+        playerInput = new Vector3(Input.GetAxisRaw("Horizontal"),0,Input.GetAxisRaw("Vertical")).normalized;
     }
 
     void Move(){
