@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 344f76b7ceacecd459ee2778b7af680b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 767bcb24466e44a4e9e422eba5757ffd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -232,3 +232,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::trashTrigger
   GM: {fileID: 0}
   cs: {fileID: 0}
+  trashes:
+  - {fileID: 21300000, guid: 344f76b7ceacecd459ee2778b7af680b, type: 3}
+  - {fileID: 21300000, guid: 518ec177375406f40bae8aa6f4147885, type: 3}
+  - {fileID: 21300000, guid: 0c954b264d29d0347bbc285715a7956b, type: 3}
+  - {fileID: 21300000, guid: 767bcb24466e44a4e9e422eba5757ffd, type: 3}

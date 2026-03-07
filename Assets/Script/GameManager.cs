@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public GameObject crabMagic;
     public ParticleSystem crabMagicParticles;
+    public PlayerController controller;
+    public Animator crabMagicAnimator;
     void Awake()
     {
         if (Instance == null)
@@ -42,6 +44,7 @@ public class GameManager : MonoBehaviour
 
         crabMagic = GameObject.Find("crabMagic");
         crabMagicParticles = crabMagic.GetComponent<ParticleSystem>();
+        crabMagicAnimator = controller.GetComponentInChildren<Animator>();
     }
     void Update()
     {
@@ -71,26 +74,29 @@ public class GameManager : MonoBehaviour
         temperature -= 0.1f;
         Debug.Log("coral score sapped!");
     }
-    IEnumerator lowEnergyWarning()
-    {
-        lowEnergy.SetActive(true);
-        yield return new WaitForSeconds(3);
-        lowEnergy.SetActive(false);
-    }
+    
     public IEnumerator useMagic(int amountSapped)
     {
         //run animation for crab
         if(temperature >= 0.1f && energyScore >= 10)
         {
         crabMagicParticles.Play();
-        yield return new WaitForSeconds(3f); // change length to length of animation
-        coralSap(amountSapped);
+        crabMagicAnimator.SetBool("usingMagic", true);
+        yield return new WaitForSeconds(3f);
         crabMagicParticles.Stop();
+        crabMagicAnimator.SetBool("usingMagic", false);
+        coralSap(amountSapped);
         }
         else if(energyScore < 10)
         {
             StartCoroutine(lowEnergyWarning());
         }
+    }
+    IEnumerator lowEnergyWarning()
+    {
+        lowEnergy.SetActive(true);
+        yield return new WaitForSeconds(3);
+        lowEnergy.SetActive(false);
     }
     /* void GetCurrentFill(Image uiImage, float fill)
     {

@@ -17,6 +17,7 @@ public class collectibleSpawner : MonoBehaviour
     public int totalTrash;
     public float trashDelayRate;
     public int currentTrashAmount;
+    public trashTrigger tt;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -48,6 +49,7 @@ public class collectibleSpawner : MonoBehaviour
         trashPool = new List<GameObject>();
         for (int i = 0; i < trashPoolAmount; i++) {    
             GameObject obj = (GameObject)Instantiate(trash);
+            trash.GetComponentInChildren<SpriteRenderer>().sprite = tt.trashes[(Random.Range(0, tt.trashes.Count))];
             obj.SetActive(false); 
             trashPool.Add(obj);
             }
