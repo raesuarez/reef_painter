@@ -34,8 +34,8 @@ public class trashTrigger : MonoBehaviour
     IEnumerator destroyTrash()
     {
         //run crab animation
-        yield return new WaitForSeconds(3f); // do this however long the crab animation runs
-        GM.coralSap(5);
+        StartCoroutine(GM.useMagic(5));
+        yield return new WaitForSeconds(4f); // do this however long the crab animation runs
         this.gameObject.SetActive(false);
         cs.currentTrashAmount -= 1;
     }

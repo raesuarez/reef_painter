@@ -34,7 +34,7 @@ public class coralManager : MonoBehaviour
         if (insideCoralArea && Input.GetKeyDown(KeyCode.Q))
         {
             Debug.Log("q pressed");
-            GM.coralSap(10);
+            StartCoroutine(GM.useMagic(10));
         }
     }
 }

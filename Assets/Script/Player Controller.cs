@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public SpriteRenderer crabbyImage;
     public Sprite upCrabby;
     public Sprite downCrabby;
+    //public ParticleSystem crabMagic;
     void Awake()
     {
         GM = GameManager.Instance;
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
         GM = GameManager.Instance;
         rb = this.GetComponent<Rigidbody>();
         Cursor.visible = false;
+        //crabMagic = this.gameObject.transform.GetChild(0).GetComponent<ParticleSystem>();
     }
        
     void Update()
