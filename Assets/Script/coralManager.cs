@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class coralManager : MonoBehaviour
 {
-    public GameObject coralUI;
     public GameManager GM;
     private bool insideCoralArea;
+    public GameObject q;
     void Start()
     {
         GM = GameManager.Instance;
@@ -17,15 +17,21 @@ public class coralManager : MonoBehaviour
     void OnTriggerEnter(Collider other){
         if(other.gameObject.tag == "Player"){
             Debug.Log("entered coral area");
-            coralUI.gameObject.SetActive(true);
             insideCoralArea = true;
+            if(q != null)
+            {
+                q.SetActive(true);
+            }
         }
     }
 
     void OnTriggerExit(Collider other){
         if(other.gameObject.tag == "Player"){
-            coralUI.gameObject.SetActive(false);
             insideCoralArea = false;
+            if(q != null)
+            {
+                q.SetActive(false);
+            }
         }
     }
 
@@ -34,7 +40,7 @@ public class coralManager : MonoBehaviour
         if (insideCoralArea && Input.GetKeyDown(KeyCode.Q))
         {
             Debug.Log("q pressed");
-            StartCoroutine(GM.useMagic(10));
+            StartCoroutine(GM.useMagic(10, 3f));
         }
     }
 }

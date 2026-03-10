@@ -7,11 +7,12 @@ TagManager:
   - collectible
   - trash
   - food
+  - q
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - collectibles
   - Water
   - UI
   - 

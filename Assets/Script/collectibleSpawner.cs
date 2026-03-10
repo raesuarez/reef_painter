@@ -42,7 +42,6 @@ public class collectibleSpawner : MonoBehaviour
             obj.SetActive(false); 
             foodPool.Add(obj);
             }
-
         StartCoroutine(SpawnFood());
 
         //trash pool
@@ -53,13 +52,13 @@ public class collectibleSpawner : MonoBehaviour
             obj.SetActive(false); 
             trashPool.Add(obj);
             }
-
         StartCoroutine(SpawnTrash());
     }
     
     void Update()
     {
         foodSpawnRate = GM.foodSpawnRate;
+        //Debug.Log(foodSpawnRate);
         trashDelayRate = currentTrashAmount * 0.2f; //5 pieces of trash adds 1 second delay to spawn rate
     }
 
@@ -67,33 +66,31 @@ public class collectibleSpawner : MonoBehaviour
     {
         for (int i = 0; i < foodPoolAmount; i++)
         {
-            if (i == totalFood-1)
-            {
-                i=0;
-            }
+            Debug.Log("spawning food");
             GameObject f = GetPooledFood();
-            f.transform.position = GetRandomSpawnPosition();
-            f.transform.rotation = Quaternion.identity;
-            f.SetActive(true);
-            yield return new WaitForSeconds(foodSpawnRate + trashDelayRate);
+            if(f != null)
+            {   
+
+                f.transform.position = GetRandomSpawnPosition();
+                f.transform.rotation = Quaternion.Euler(new Vector3(0,45,0));
+                f.SetActive(true);
+                yield return new WaitForSeconds(foodSpawnRate + trashDelayRate);
+            }
         }
-        
     }
     IEnumerator SpawnTrash()
     {
         for (int i = 0; i < trashPoolAmount; i++)
         {
-            if (i == totalTrash-1)
-            {
-                i=0;
-            }
             GameObject t = GetPooledTrash();
-            t.transform.position = GetRandomSpawnPosition();
-            t.transform.rotation = Quaternion.identity;
-            t.SetActive(true);
-            yield return new WaitForSeconds(5);
+            if(t != null)
+            {
+                t.transform.position = GetRandomSpawnPosition();
+                t.transform.rotation = Quaternion.Euler(new Vector3(0,45,0));
+                t.SetActive(true);
+                yield return new WaitForSeconds(10);
+            }  
         }
-        
     }
 
     Vector3 GetRandomSpawnPosition()
@@ -102,9 +99,13 @@ public class collectibleSpawner : MonoBehaviour
         float randomZ = Random.Range(-45, 45);
         return new Vector3 (randomX, 0.4f, randomZ);
     }
+
+
     public GameObject GetPooledFood() 
     {
     //1
+    
+    Debug.Log("getting pooled food");
     for (int i = 0; i < foodPool.Count; i++) {
     //2
         if (!foodPool[i].activeInHierarchy) {
@@ -117,6 +118,7 @@ public class collectibleSpawner : MonoBehaviour
     public GameObject GetPooledTrash() 
     {
     //1
+    
     for (int i = 0; i < trashPool.Count; i++) {
     //2
         if (!trashPool[i].activeInHierarchy) {

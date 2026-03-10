@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 3000887161318742121}
   - component: {fileID: 7260158210532883826}
   - component: {fileID: 5648316789458348138}
-  m_Layer: 0
+  - component: {fileID: 858460555304436500}
+  - component: {fileID: 6534907980452193408}
+  m_Layer: 3
   m_Name: foodPH
   m_TagString: food
   m_Icon: {fileID: 0}
@@ -26,13 +28,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3293597632929288643}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
   m_LocalPosition: {x: 10.78382, y: -0.53, z: 3.02206}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
 --- !u!65 &7260158210532883826
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -52,8 +54,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.9215498, y: 1.1759907, z: 1.0609121}
-  m_Center: {x: -0.05384302, y: -0.42924386, z: 0.54597044}
+  m_Size: {x: 2.3627427, y: 3.1126342, z: 1.0609121}
+  m_Center: {x: -0.038047303, y: -0.37872815, z: 0.54596496}
 --- !u!212 &5648316789458348138
 SpriteRenderer:
   serializedVersion: 2
@@ -113,3 +115,40 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!95 &858460555304436500
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3293597632929288643}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dadb7644d6793834ab33ae72d16fd3e1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6534907980452193408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3293597632929288643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a639d137dbd35b4daa10119e3f3eccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 1
