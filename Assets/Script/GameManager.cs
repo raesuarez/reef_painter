@@ -121,7 +121,7 @@ public class GameManager : MonoBehaviour
         }
     }
     public void addScore(){
-        energyScore+=1;
+        energyScore+=3;
         algaePickup.Play();
     }
     public void coralSap(int amountSapped){
@@ -129,13 +129,15 @@ public class GameManager : MonoBehaviour
         if(energyScore >= amountSapped)
         {
             energyScore -= amountSapped;
+
+            if(amountSapped == 10)
+            {
+                magicSound.Play();
+                temperature -= 0.1f;
+            }
         }
         //Debug.Log("coral score sapped!");
-        if(amountSapped == 10 && energyScore >=10)
-        {
-            magicSound.Play();
-            temperature -= 0.1f;
-        }
+        
     }
     
     public IEnumerator useMagic(int amountSapped, float seconds)
@@ -145,12 +147,14 @@ public class GameManager : MonoBehaviour
         {
             controller.enabled = false;
             crabMagicParticles.Play();
+            crabMagicAnimator.enabled = true;
             crabMagicAnimator.SetBool("usingMagic", true);
             yield return new WaitForSeconds(seconds);
             crabMagicParticles.Stop();
             crabMagicAnimator.SetBool("usingMagic", false);
             coralSap(amountSapped);
             controller.enabled = true;
+            crabMagicAnimator.enabled = false;
         }
         else if(energyScore < amountSapped)
         {

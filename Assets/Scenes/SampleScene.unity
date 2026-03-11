@@ -723,10 +723,10 @@ MonoBehaviour:
   foodSpawnRate: 0
   foodPool: []
   food: {fileID: 3293597632929288643, guid: ef90577618616744d8d38aab9da710dc, type: 3}
-  foodPoolAmount: 50
+  foodPoolAmount: 200
   trashPool: []
   trash: {fileID: 4891741958408643523, guid: 1172a78b0dd9e9444958abea1567c9b4, type: 3}
-  trashPoolAmount: 25
+  trashPoolAmount: 100
   totalFood: 0
   totalTrash: 0
   trashDelayRate: 0
@@ -1024,7 +1024,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 193390870}
-  - component: {fileID: 193390873}
   - component: {fileID: 193390872}
   - component: {fileID: 193390871}
   m_Layer: 0
@@ -1086,20 +1085,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 17.684343, y: 7.5116787, z: 13.028745}
   m_Center: {x: -0.6552896, y: 3.2558393, z: -1.5987697}
---- !u!114 &193390873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 193390869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c6a584beddf35743aaa3c154eca0208, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::coralManager
-  GM: {fileID: 0}
-  q: {fileID: 0}
 --- !u!1001 &211089723
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2762,12 +2747,12 @@ Transform:
   m_GameObject: {fileID: 368891527}
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000029802322, y: 0.38268346, z: 0.00000000745058, w: 0.9238796}
-  m_LocalPosition: {x: -18.96, y: 1.27, z: -17.7}
+  m_LocalPosition: {x: -42.9, y: 1.27, z: -42.9}
   m_LocalScale: {x: 4.145948, y: 3.6485853, z: 2.7431207}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1502463035}
   - {fileID: 370494532}
+  - {fileID: 1502463035}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &368891529
@@ -2782,8 +2767,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71319a59c1584f943ac6782e7fa3620f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  speed: 10
+  playerInput: {x: 0, y: 0, z: 0}
+  speed: 15
   GM: {fileID: 1934937504}
+  isFacingRight: 1
+  isFacingUp: 1
   crabbyImage: {fileID: 370494531}
   upCrabby: {fileID: 21300000, guid: 34310221aeddf3f45b8f08ba64a9ee8c, type: 3}
   downCrabby: {fileID: 21300000, guid: b59b616067cfd154cb1bfdca44f8e7f4, type: 3}
@@ -2965,7 +2953,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.84, y: 2.62}
+  m_Size: {x: 5.08, y: 4.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -3005,7 +2993,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 370494530}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: def6f869286f09c42b068b9b956bb3a8, type: 2}
   m_CullingMode: 0
@@ -4978,7 +4966,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 678160500}
-  - component: {fileID: 678160503}
   - component: {fileID: 678160502}
   - component: {fileID: 678160501}
   m_Layer: 0
@@ -5040,20 +5027,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 17.684343, y: 7.5116787, z: 13.028745}
   m_Center: {x: -0.6552896, y: 3.2558393, z: -1.5987697}
---- !u!114 &678160503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678160499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c6a584beddf35743aaa3c154eca0208, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::coralManager
-  GM: {fileID: 0}
-  q: {fileID: 0}
 --- !u!1001 &686732789
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16896,7 +16869,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1760161344}
-  - component: {fileID: 1760161347}
   - component: {fileID: 1760161346}
   - component: {fileID: 1760161348}
   m_Layer: 0
@@ -16945,20 +16917,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 15.141688, y: 7.5116787, z: 13.028745}
   m_Center: {x: -1.926619, y: 3.2558393, z: -1.5987697}
---- !u!114 &1760161347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1760161343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c6a584beddf35743aaa3c154eca0208, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::coralManager
-  GM: {fileID: 0}
-  q: {fileID: 0}
 --- !u!114 &1760161348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17345,7 +17303,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1782104810}
-  - component: {fileID: 1782104813}
   - component: {fileID: 1782104812}
   - component: {fileID: 1782104811}
   m_Layer: 0
@@ -17406,20 +17363,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 15.141688, y: 7.5116787, z: 13.028745}
   m_Center: {x: -1.926619, y: 3.2558393, z: -1.5987697}
---- !u!114 &1782104813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1782104809}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c6a584beddf35743aaa3c154eca0208, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::coralManager
-  GM: {fileID: 0}
-  q: {fileID: 0}
 --- !u!1 &1787009761
 GameObject:
   m_ObjectHideFlags: 0

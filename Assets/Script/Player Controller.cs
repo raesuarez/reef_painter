@@ -4,12 +4,12 @@ using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
-    private Vector3 playerInput;
+    public Vector3 playerInput;
     private Rigidbody rb;
     public float speed = 5;
     public GameManager GM;
-    bool isFacingRight = true;
-    bool isFacingUp = true;
+    public bool isFacingRight = true;
+    public bool isFacingUp = true;
     public SpriteRenderer crabbyImage;
     public Sprite upCrabby;
     public Sprite downCrabby;
@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     void Start(){
         GM = GameManager.Instance;
         rb = this.GetComponent<Rigidbody>();
+        crabbyImage = GetComponentInChildren<SpriteRenderer>();
         Cursor.visible = false;
         //crabMagic = this.gameObject.transform.GetChild(0).GetComponent<ParticleSystem>();
     }
@@ -34,7 +35,7 @@ public class PlayerController : MonoBehaviour
     
     void RotateImage(){
 
-        if(playerInput != Vector3.zero){
+        //if(playerInput != Vector3.zero){
             if (isFacingRight && playerInput.x < 0){
             isFacingRight = false;
             crabbyImage.flipX = true;
@@ -46,12 +47,13 @@ public class PlayerController : MonoBehaviour
         if (isFacingUp && playerInput.z < 0){
             isFacingUp = false;
             crabbyImage.sprite = downCrabby;
+            Debug.Log("changed sprite");
             }
         if (!isFacingUp && playerInput.z > 0){
             isFacingUp = true;
             crabbyImage.sprite = upCrabby;
             }
-        }
+       // }
     }
 
     void GatherInputs(){

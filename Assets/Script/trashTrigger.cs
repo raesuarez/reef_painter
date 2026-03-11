@@ -12,6 +12,7 @@ public class trashTrigger : MonoBehaviour
     private GameObject q;
     public LayerMask m_LayerMask;
     public AudioSource trashSound;
+    public GameObject image;
     void Start()
     {
         GM = GameManager.Instance;
@@ -69,10 +70,12 @@ public class trashTrigger : MonoBehaviour
         {
             trashSound.Play();
             StartCoroutine(GM.useMagic(5,1.5f));
+            image.SetActive(false);
             yield return new WaitForSeconds(3.1f);
-            this.gameObject.SetActive(false);
+            
             cs.currentTrashAmount -= 1;
             insideTrash = false;
+            this.gameObject.SetActive(false);
         }
         else
         {
